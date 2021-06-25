@@ -1,0 +1,16 @@
+//Description: This program prints my name and number of programming languages I know.
+//Class: COSC 1437
+//Name: Tashfan Khan
+//Date: 06-11-2021
+
+
+public class JavaLab1
+{
+  public static void main(String[] args)
+  {
+    String name = "Tashfan Khan", lang1 = "Python", lang2 = "C++";
+    System.out.println("My name is " + name + ".");
+    System.out.println("I have independently studied " + lang1 + ".");
+    System.out.println("I have taken the class COSC 1436 which taught " + lang2 + ".");
+  }
+}
