@@ -1,0 +1,126 @@
+//Description: This program takes five numbers and performs/displays calculations with them.
+//Class: COSC 1437
+//Name: Tashfan Khan
+//Date: 06-24-2021
+
+import javax.swing.JOptionPane;
+
+public class Homework3
+{
+  public static void main(String[] args)
+  {
+//creating and initializing variables with dummy numbers
+    int largestNumber = 0, smallestNumber = 0, oddSum = 0, largestEven = 0;
+    int oddNum1 = 0, oddNum2 = 0, oddNum3 = 0, oddNum4 = 0, oddNum5 = 0;
+    int evenNum1 = 0, evenNum2 = 0, evenNum3 = 0, evenNum4 = 0, evenNum5 = 0;
+    
+    
+//Obtaining the string input
+    String strNum1 = JOptionPane.showInputDialog("Enter the first number: ");
+    String strNum2 = JOptionPane.showInputDialog("Enter the second number: ");
+    String strNum3 = JOptionPane.showInputDialog("Enter the third number: ");
+    String strNum4 = JOptionPane.showInputDialog("Enter the fourth number: ");
+    String strNum5 = JOptionPane.showInputDialog("Enter the fifth number: ");
+    
+    
+//Converting string input into Int.
+    int newNum1 = Integer.parseInt(strNum1);
+    int newNum2 = Integer.parseInt(strNum2);
+    int newNum3 = Integer.parseInt(strNum3);
+    int newNum4 = Integer.parseInt(strNum4);
+    int newNum5 = Integer.parseInt(strNum5);
+    
+    
+//Deciding the largest number and assigning the value to largestNumber
+    if (newNum1 >= newNum2 && newNum1 >= newNum3 && newNum1 >= newNum4 && newNum1 >= newNum5)
+      {largestNumber = newNum1;}
+      
+    if (newNum2 >= newNum1 && newNum2 >= newNum3 && newNum2 >= newNum4 && newNum2 >= newNum5)
+      {largestNumber = newNum2;}
+      
+    if (newNum3 >= newNum1 && newNum3 >= newNum2 && newNum3 >= newNum4 && newNum3 >= newNum5)
+      {largestNumber = newNum3;}
+      
+    if (newNum4 >= newNum1 && newNum4 >= newNum2 && newNum4 >= newNum3 && newNum4 >= newNum5)
+      {largestNumber = newNum4;}
+      
+    if (newNum5 >= newNum1 && newNum5 >= newNum2 && newNum5 >= newNum3 && newNum5 >= newNum4)
+      {largestNumber = newNum5;}
+      
+//Deciding the smallest number and assigning the value to smallestNumber
+    if (newNum1 <= newNum2 && newNum1 <= newNum3 && newNum1 <= newNum4 && newNum1 <= newNum5)
+      {smallestNumber = newNum1;}
+      
+    if (newNum2 <= newNum1 && newNum2 <= newNum3 && newNum2 <= newNum4 && newNum2 <= newNum5)
+      {smallestNumber = newNum2;}
+      
+    if (newNum3 <= newNum1 && newNum3 <= newNum2 && newNum3 <= newNum4 && newNum3 <= newNum5)
+      {smallestNumber = newNum3;}
+      
+    if (newNum4 <= newNum1 && newNum4 <= newNum2 && newNum4 <= newNum3 && newNum4 <= newNum5)
+      {smallestNumber = newNum4;}
+      
+    if (newNum5 <= newNum1 && newNum5 <= newNum2 && newNum5 <= newNum3 && newNum5 <= newNum4)
+      {smallestNumber = newNum5;}
+      
+      
+//determining if number is odd or even
+    if (newNum1 % 2 != 0)
+      {oddNum1 = newNum1;}
+    else
+      {evenNum1 = newNum1;}
+      
+      
+    if (newNum2 % 2 != 0)
+      {oddNum2 = newNum2;}
+    else
+      {evenNum2 = newNum2;}
+      
+      
+    if (newNum3 % 2 != 0)
+      {oddNum3 = newNum3;}
+    else
+      {evenNum3 = newNum3;}
+      
+      
+    if (newNum4 % 2 != 0)
+      {oddNum4 = newNum4;}
+    else
+      {evenNum4 = newNum4;}
+      
+      
+    if (newNum5 % 2 != 0)
+      {oddNum5 = newNum5;}
+    else
+      {evenNum5 = newNum5;}
+      
+      
+//determining the largest of the even numbers
+    if (evenNum1 >= evenNum2 && evenNum1 >= evenNum3 && evenNum1 >= evenNum4 && evenNum1 >= evenNum5)
+      {largestEven = evenNum1;}
+      
+    if (evenNum2 >= evenNum1 && evenNum2 >= evenNum3 && evenNum2 >= evenNum4 && evenNum2 >= evenNum5)
+      {largestEven = evenNum2;}
+      
+    if (evenNum3 >= evenNum1 && evenNum3 >= evenNum2 && evenNum3 >= evenNum4 && evenNum3 >= evenNum5)
+      {largestEven = evenNum3;}
+      
+    if (evenNum4 >= evenNum1 && evenNum4 >= evenNum2 && evenNum4 >= evenNum3 && evenNum4 >= evenNum5)
+      {largestEven = evenNum4;}
+      
+    if (evenNum5 >= evenNum1 && evenNum5 >= evenNum2 && evenNum5 >= evenNum3 && evenNum5 >= evenNum4)
+      {largestEven = evenNum5;}
+      
+      
+//calculating the sum of the odd numbers
+    oddSum = oddNum1 + oddNum2 + oddNum3 + oddNum4 + oddNum5;
+    
+//displaying results
+    JOptionPane.showMessageDialog(null, "The largest number is: " + largestNumber + ".");
+    JOptionPane.showMessageDialog(null, "The smallest number is: " + smallestNumber + ".");
+    JOptionPane.showMessageDialog(null, "The sum of odd numbers is: " + oddSum + ".");
+    JOptionPane.showMessageDialog(null, "The largest even number is: " + largestEven + ".");
+    System.exit(0);
+  }
+
+}
