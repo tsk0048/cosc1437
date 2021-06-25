@@ -1,0 +1,38 @@
+/Description: This program takes three numbers and performs/displays calculations with them.
+//Class: COSC 1437
+//Name: Tashfan Khan
+//Date: 06-17-2021
+
+
+import javax.swing.JOptionPane;
+public class JavaLab2
+{
+  public static void main(String[] args)
+  {
+//This section obtains input.
+    String num1 = JOptionPane.showInputDialog("Enter the first number: ");
+    String num2 = JOptionPane.showInputDialog("Enter the second number: ");
+    String num3 = JOptionPane.showInputDialog("Enter the third number: ");
+    
+    
+//This section converts the string input into int.
+    int newNum1 = Integer.parseInt(num1);
+    int newNum2 = Integer.parseInt(num2);
+    int newNum3 = Integer.parseInt(num2);
+    
+    
+//This section performs the required calculations.
+    int result1 =  newNum1 + newNum2 + newNum3;
+    int result2 =  result1 / 3;
+    int result3 = newNum1 - newNum3;
+    int result4 = newNum2 - newNum1;
+    
+    
+//This section displays the required results.
+    JOptionPane.showMessageDialog(null, "The sum of all numbers is: " + result1 + ".");
+    JOptionPane.showMessageDialog(null, "The average of all numbers is: " + result2 + ".");
+    JOptionPane.showMessageDialog(null, "The difference of the first and third number is:  " + result3 + ".");
+    JOptionPane.showMessageDialog(null, "The difference of the second and first number is:  " + result4 + ".");
+    System.exit(0);
+    }
+}
