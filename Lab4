@@ -1,0 +1,235 @@
+import javax.swing.JOptionPane;
+
+public class Homework4 {
+	public static void main(String[] args)
+	{
+		//This section initializes all variables
+		int menuChoice, exitChoice;
+		
+		int oddDDNum1 = 0, oddDDNum2 = 0, oddDDNum3 = 0, oddDDNum4 = 0, oddDDNum5 = 0;
+		int evenDDNum1 = 0, evenDDNum2 = 0, evenDDNum3 = 0, evenDDNum4 = 0, evenDDNum5 = 0;
+		int oddTDNum1 = 0, oddTDNum2 = 0, oddTDNum3 = 0, oddTDNum4 = 0, oddTDNum5 = 0;
+		int ddNum1 = 0, ddNum2 = 0, ddNum3 = 0, ddNum4 = 0, ddNum5 = 0; // dd = double digit
+		int tdNum1 = 0, tdNum2 = 0, tdNum3 = 0, tdNum4 = 0, tdNum5 = 0; // td = triple digit
+		int fdNum1 = 0, fdNum2 = 0, fdNum3 = 0, fdNum4 = 0, fdNum5 = 0; // fd = four digit or quadruple digit number
+		int gfNum1 = 0, gfNum2 = 0, gfNum3 = 0, gfNum4 = 0, gfNum5 = 0; // gf = greater than four digit
+		
+		//This section holds the menu system in a do-while loop
+		do {
+		System.out.println("Select a number to proceed.");
+		System.out.println(
+				"(0) - To enter up to five 2-digit numbers.\n"
+				+ "(1) - To enter up to five 3-digit numbers. \n" 	
+				+ "(2) - To enter up to five 4-digit numbers. \n"
+				+ "(3) - To enter up to five numbers greater than 4-digits. \n"
+				+ "(-9) - To stop entering numbers.\n\n");
+		String input = JOptionPane.showInputDialog("Enter menu selection");
+		menuChoice = Integer.parseInt(input);
+		
+		
+		//This section processes the menu selections inside of the loop
+		switch(menuChoice) 
+		{
+		case 0:
+			System.out.println("selection is: Zero\nDouble-digit numbers.\n\n");
+			do {
+			JOptionPane.showMessageDialog(null, "Enter up to five double-digit numbers.\nEnter 0 for unwanted numbers."
+					+ "\nPrevious menu only accessible from final dialogue box.");
+			String strNum1 = JOptionPane.showInputDialog("Enter the first double digit number: ");
+			ddNum1 = Integer.parseInt(strNum1);
+			String strNum2 = JOptionPane.showInputDialog("Enter the second double digit number: ");
+			ddNum2 = Integer.parseInt(strNum2);
+			String strNum3 = JOptionPane.showInputDialog("Enter the third double digit number: ");
+			ddNum3 = Integer.parseInt(strNum3);
+			String strNum4 = JOptionPane.showInputDialog("Enter the fourth double digit number: ");
+			ddNum4 = Integer.parseInt(strNum4);
+			String strNum5 = JOptionPane.showInputDialog("Enter the fifth double digit number: ");
+			ddNum5 = Integer.parseInt(strNum5);
+			String exit1 = JOptionPane.showInputDialog("To return, enter (-9)");
+			exitChoice = Integer.parseInt(exit1);
+			} while(exitChoice != -9);
+			//input validation
+			if(tdNum1 >= 100 || ddNum1 < 9 || ddNum2 >= 100 || ddNum2 < 9 || ddNum3 >= 100 || ddNum3 < 9 || ddNum4 >= 100 || ddNum4 < 9 || ddNum5 >= 100 || ddNum5 < 9)
+				{System.out.println("Numbers are invalid. Try again");
+				ddNum1 = 0;
+				ddNum2 = 0;
+				ddNum3 = 0;
+				ddNum4 = 0;
+				ddNum5 = 0;}
+			System.out.println("Double digit numbers are: " + ddNum1 + ", " + ddNum2 + ", " + ddNum3 + ", " + ddNum4 + ", " + ddNum5 + "\n\n");
+			break;
+			
+			
+		case 1:
+			System.out.println("selection is: One\nTriple-digit numbers.\n\n");
+			do {
+				JOptionPane.showMessageDialog(null, "Enter up to five triple-digit numbers.\nEnter 0 for unwanted numbers."
+						+ "\nPrevious menu only accessible from final dialogue box.");
+				String strNum6 = JOptionPane.showInputDialog("Enter the first triple digit number: ");
+				tdNum1 = Integer.parseInt(strNum6);
+				String strNum7 = JOptionPane.showInputDialog("Enter the second triple digit number: ");
+				tdNum2 = Integer.parseInt(strNum7);
+				String strNum8 = JOptionPane.showInputDialog("Enter the third triple digit number: ");
+				tdNum3 = Integer.parseInt(strNum8);
+				String strNum9 = JOptionPane.showInputDialog("Enter the fourth triple digit number: ");
+				tdNum4 = Integer.parseInt(strNum9);
+				String strNum10 = JOptionPane.showInputDialog("Enter the fifth triple digit number: ");
+				tdNum5 = Integer.parseInt(strNum10);
+				String exit2 = JOptionPane.showInputDialog("To return, enter (-9)");
+				exitChoice = Integer.parseInt(exit2);
+				} while(exitChoice != -9);
+			//input validation
+			if(tdNum1 >= 1000 || tdNum1 < 99 || tdNum2 >= 1000 || tdNum2 < 99 || tdNum3 >= 1000 || tdNum3 < 99 || tdNum4 >= 1000 || tdNum4 < 99 || tdNum5 >= 1000 || tdNum5 < 99)
+				{System.out.println("Numbers are invalid. Try again");
+				tdNum1 = 0;
+				tdNum2 = 0;
+				tdNum3 = 0;
+				tdNum4 = 0;
+				tdNum5 = 0;}
+			System.out.println("Triple digit numbers are: " + tdNum1 + ", " + tdNum2 + ", " + tdNum3 + ", " + tdNum4 + ", " + tdNum5 + "\n\n");
+			break;
+				
+			
+			
+		case 2:
+			System.out.println("selection is: Two\nQuadruple-digit numbers.\n\n");
+			do {
+				JOptionPane.showMessageDialog(null, "Enter up to five quadruple-digit numbers.\nEnter 0 for unwanted numbers."
+						+ "\nPrevious menu only accessible from final dialogue box.");
+				String strNum11 = JOptionPane.showInputDialog("Enter the first quadruple digit number: ");
+				fdNum1 = Integer.parseInt(strNum11);
+				String strNum12 = JOptionPane.showInputDialog("Enter the second quadruple digit number: ");
+				fdNum2 = Integer.parseInt(strNum12);
+				String strNum13 = JOptionPane.showInputDialog("Enter the third quadruple digit number: ");
+				fdNum3 = Integer.parseInt(strNum13);
+				String strNum14 = JOptionPane.showInputDialog("Enter the fourth quadruple digit number: ");
+				fdNum4 = Integer.parseInt(strNum14);
+				String strNum15 = JOptionPane.showInputDialog("Enter the fifth quadruple digit number: ");
+				fdNum5 = Integer.parseInt(strNum15);
+				String exit3 = JOptionPane.showInputDialog("To return, enter (-9)");
+				exitChoice = Integer.parseInt(exit3);
+				} while(exitChoice != -9);
+			//input validation
+			if(fdNum1 >= 10000 || fdNum1 < 999 || fdNum2 >= 10000 || fdNum2 < 999 || fdNum3 >= 10000 || fdNum3 < 999 || fdNum4 >= 10000 || fdNum4 < 999 || fdNum5 >= 10000 || fdNum5 < 999)
+				{System.out.println("Numbers are invalid. Try again");
+				fdNum1 = 0;
+				fdNum2 = 0;
+				fdNum3 = 0;
+				fdNum4 = 0;
+				fdNum5 = 0;}
+			System.out.println("Quadruple digit numbers are: " + fdNum1 + ", " + fdNum2 + ", " + fdNum3 + ", " + fdNum4 + ", " + fdNum5 + "\n\n");
+			break;
+			
+			
+		case 3:
+			System.out.println("selection is: Three\nNumbers greater than four-digits.\n\n");
+			do {
+				JOptionPane.showMessageDialog(null, "Enter up to five numbers larger than four-digits.\nEnter 0 for unwanted numbers."
+						+ "\nPrevious menu only accessible from final dialogue box.");
+				String strNum16 = JOptionPane.showInputDialog("Enter the first number larger than four-digits: ");
+				gfNum1 = Integer.parseInt(strNum16);
+				String strNum17 = JOptionPane.showInputDialog("Enter the second number larger than four-digits: ");
+				gfNum2 = Integer.parseInt(strNum17);
+				String strNum18 = JOptionPane.showInputDialog("Enter the third number larger than four-digits: ");
+				gfNum3 = Integer.parseInt(strNum18);
+				String strNum19 = JOptionPane.showInputDialog("Enter the fourth number larger than four-digits: ");
+				gfNum4 = Integer.parseInt(strNum19);
+				String strNum20 = JOptionPane.showInputDialog("Enter the fifth number larger than four-digits: ");
+				gfNum5 = Integer.parseInt(strNum20);
+				String exit4 = JOptionPane.showInputDialog("To return, enter (-9)");
+				exitChoice = Integer.parseInt(exit4);
+				} while(exitChoice != -9);
+			
+			//input validation
+			if(gfNum1 < 9999 && gfNum2 < 9999 && gfNum3 < 9999 && gfNum4 < 9999 && gfNum5 < 9999)
+				{System.out.println("Numbers are invalid. Try again");
+				gfNum1 = 0;
+				gfNum2 = 0;
+				gfNum3 = 0;
+				gfNum4 = 0;
+				gfNum5 = 0;}
+			
+			System.out.println("Numbers greater than four-digits are: " + gfNum1 + ", " + gfNum2 + ", " + gfNum3 + ", " + gfNum4 + ", " + gfNum5 + "\n\n");
+			break;
+			
+			
+		case -9:
+			System.out.println("No more numbers can be entered.");
+			break;
+			
+			
+		default:
+			System.out.println("Please enter a valid selection.\n\n");
+			break;
+		}
+		} while(menuChoice != -9);
+		
+		//calculating average of all triple digit numbers
+		 int result1; 
+		 result1 = (tdNum1 + tdNum2 + tdNum3 + tdNum4 + tdNum5) / 5;
+		
+		
+		
+		//determining if double digit numbers are odd or even
+		if (ddNum1 % 2 != 0)
+		{oddDDNum1 = ddNum1;}
+		else
+		{evenDDNum1 = ddNum1;}
+		
+		
+		if (ddNum2 % 2 != 0)
+		{oddDDNum2 = ddNum2;}
+		else
+		{evenDDNum2 = ddNum2;}
+		
+		
+		if (ddNum3 % 2 != 0)
+		{oddDDNum3 = ddNum3;}
+		else
+		{evenDDNum3 = ddNum3;}
+		
+		
+		if (ddNum4 % 2 != 0)
+		{oddDDNum4 = ddNum4;}
+		else
+		{evenDDNum4 = ddNum4;}
+		
+		if (ddNum5 % 2 != 0)
+		{oddDDNum5 = ddNum5;}
+		else
+		{evenDDNum5 = ddNum5;}
+		
+		//determining if triple digit numbers are odd or even
+		
+		
+		if (tdNum1 % 2 != 0)
+		{oddTDNum1 = tdNum1;}
+		
+		
+		if (tdNum2 % 2 != 0)
+		{oddTDNum2 = tdNum2;}
+		
+		
+		if (tdNum3 % 2 != 0)
+		{oddTDNum3 = tdNum3;}
+		
+		
+		if (tdNum4 % 2 != 0)
+		{oddTDNum4 = tdNum4;}
+		
+		
+		if (tdNum5 % 2 != 0)
+		{oddTDNum5 = tdNum5;}
+		
+		//Calculating sum of even DDnumbers and sum of odd TD/DDnumbers
+		int result2, result3;
+		result2 = evenDDNum1 + evenDDNum2 + evenDDNum3 + evenDDNum4 + evenDDNum5;
+		result3 = oddDDNum1 + oddDDNum2 + oddDDNum3 + oddDDNum4 + oddDDNum5 + oddTDNum1 + oddTDNum2 + oddTDNum3 +oddTDNum4 + oddTDNum5;
+		
+		
+		System.out.println("The sum of even two-digit numbers is: " + result2 + ".\n");
+		System.out.println("The sum of odd two-digit and three-digit numbers is: " + result3 + ".\n");
+		System.out.println("The average of three digit numbers is: " + result1 + ".\n");
+	
+	}
+}
