@@ -1,0 +1,73 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class sampleText {
+	public static void main (String[] args) throws IOException
+	{
+		int vowelCount = 0;
+		String playerName; //initializing variable to hold player name(s)
+		Scanner keyboard = new Scanner(System.in); //initializing keyboard for input
+		
+		System.out.print("Enter file path: ");
+		String filePath = keyboard.nextLine(); //obtaining file path
+		PrintWriter outputFile = new PrintWriter(filePath); //accessing file to write
+		
+		
+		System.out.print("\nType Y to enter a player name\nType N to stop\n"); //initial menu choice
+		char choice = keyboard.next().charAt(0); //entering initial menu choice
+		keyboard.nextLine(); //filler line for util scanner
+		
+		//obtains data from user and writes data to file in a looping menu
+		while (choice != 'n' || choice != 'N')
+		{
+			if (choice == 'y' || choice == 'Y') 
+				{          
+						while (choice != 'n' && choice != 'N')
+						{
+						System.out.print("Enter the name of player: ");         
+						playerName = keyboard.nextLine();
+						outputFile.println(playerName);
+						System.out.println("\nType Y to enter a player name\nType N to stop\n");
+						choice = keyboard.next().charAt(0);
+						keyboard.nextLine();
+						}
+				} 
+			else
+				System.out.println("No more names to add");
+				break;
+		}
+			
+		keyboard.close(); //closes input scanner
+		outputFile.close(); //closes file 
+		System.out.println("Data successfully written to file.\nList of names:\n\n");
+		
+		
+		//reading data from file
+		File file = new File(filePath);
+		Scanner inputFile = new Scanner(file);
+		while (inputFile.hasNext())
+			{        
+			String playerName2 = "-" + inputFile.nextLine();
+			for (int i = 0; i < playerName2.length(); i += 1) //iterating through each letter
+				{
+					char vowel = playerName2.charAt(i);
+					if(vowel == 'a'|| 
+							vowel == 'e'||
+							vowel == 'i' ||
+							vowel == 'o' ||
+							vowel == 'u' ||
+							vowel == 'A' ||
+							vowel == 'E' ||
+							vowel == 'I' ||
+							vowel == 'O' ||
+							vowel == 'U')
+						vowelCount += 1;
+					
+					else if (vowel == '-') //reset the count in-between every line
+						vowelCount = 0;
+				}
+			System.out.println(playerName2+ "  (Vowel count: " + vowelCount + ")\n");
+			}
+		inputFile.close();
+	}
+}
