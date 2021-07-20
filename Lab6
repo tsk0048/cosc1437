@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Employee 
+{
+	private String empName; //private attribute
+	private int empID; //private attribute
+	private int grossSalary; //private attribute
+	
+	
+	public Employee() //constructor with message
+	{
+		System.out.println("Object Constructed Successfully.\n\n\n");
+	}
+	
+	public void setEmployeeData(String empName, int empID, int grossSalary) //initial setter
+	{
+		this.empName = empName;
+		this.empID = empID;
+		this.grossSalary = grossSalary;
+	}
+	
+	
+	public void displayEmpData() //method which displays the employee information
+	{
+		System.out.println("Employee Name: " + empName +", "
+				+ "ID: " + empID + ", Gross Salary: $" + grossSalary);
+		
+		int monthlySalary = grossSalary / 12;
+		System.out.println("Monthly salary: $" + monthlySalary);
+		
+		
+		double retContrib = grossSalary * 0.06;
+		double netSalary = grossSalary - retContrib;
+		System.out.println("Net salary: $" + netSalary + "\n\n");
+	}
+	
+	
+	public void displaySalary() //method which displays annual salary
+	{
+		System.out.println("Annual Salary is: $"+ grossSalary);
+	}
+	
+	public void displayRetAmt() //method which displays employee retirement contribution
+	{
+		double retContrib = grossSalary * 0.06;
+		System.out.println("Employee Retirement Contribution is: $" + retContrib);
+	}
+	
+	
+	public static void main (String[] args) //main method for user to enter info for 3 employees
+	{
+		String nameInput;
+		int idInput, salaryInput;
+		int i = 0;
+		
+		
+		System.out.println("Enter data for 3 employees.\n\nPress enter to continue:");
+		Scanner keyboard = new Scanner(System.in);
+
+		while (keyboard.hasNextLine() && i < 3) //loop for 3 objects
+		{
+			keyboard.nextLine();
+			System.out.println("Enter name: ");
+			nameInput = keyboard.nextLine(); //user-defined employee name
+			System.out.println("Enter ID: ");
+			idInput = keyboard.nextInt(); //user-defined employee ID number
+			System.out.println("Enter Gross Salary: ");
+			salaryInput = keyboard.nextInt(); //user-defined employee annual salary
+			
+			Employee Employee  = new Employee(); 
+			Employee.setEmployeeData(nameInput, idInput, salaryInput);
+			Employee.displayEmpData();
+			Employee.displayRetAmt();
+			Employee.displaySalary();
+			System.out.println("========================\n\n");
+			i++;
+		}
+		keyboard.close();
+	}
+}
