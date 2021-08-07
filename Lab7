@@ -1,0 +1,220 @@
+import java.util.Scanner;
+public class Employee 
+{
+	private String empName; //private field
+	private int empID; //private field
+	private int grossSalary; //private field
+	
+	
+	public Employee() //constructor with message
+	{
+		System.out.println("\nObject Constructed Successfully.\n\n\n");
+	}
+	
+	public void setEmpData(String empName, int empID, int grossSalary) //initial setter
+	{
+		this.empName = empName;
+		this.empID = empID;
+		this.grossSalary = grossSalary;
+	}
+	
+	
+	public void displayEmpData() //method which displays the employee information
+	{
+		System.out.println("Employee Name: " + empName + "\n"
+				+ "ID: " + empID + "\n" + "Gross Salary: $" + grossSalary);
+		
+		int monthlySalary = grossSalary / 12;
+		System.out.println("Monthly salary: $" + monthlySalary);
+		
+		
+		double retContrib = grossSalary * 0.06;
+		double netSalary = grossSalary - retContrib;
+		System.out.println("Net salary: $" + netSalary);
+	}
+	
+	
+	public void showSalary() //method which displays annual salary
+	{
+		System.out.println("Annual Salary is: $"+ grossSalary);
+	}
+	
+	public void showRetAmt() //method which displays employee retirement contribution
+	{
+		double retContrib = grossSalary * 0.06;
+		System.out.println("Employee Retirement Contribution is: $" + retContrib);
+	}
+	
+}
+
+public class FullTimeEmp extends Employee 
+{	
+	private String empName; //private field
+	private int empID; //private field
+	private int grossSalary; //private field
+	private double bonusPercentage; //additional private field
+	
+	FullTimeEmp() //constructor
+	{
+		super();
+	}
+	
+	public void setEmpData(String empName, int empID, int grossSalary, double bonusPercentage) //overridden setter method
+	{
+		this.empName = empName;
+		this.empID = empID;
+		this.grossSalary = grossSalary;
+		this.bonusPercentage = bonusPercentage;
+	}
+	
+	public void displayEmpData() //overridden getter method
+	{
+		System.out.println("Employee Name: " + empName + "\n"
+				+ "ID: " + empID + "\n" + "Gross Salary: $" + grossSalary);
+		
+		int monthlySalary = grossSalary / 12;
+		System.out.println("Monthly salary: $" + monthlySalary);
+		
+		
+		double retContrib = grossSalary * 0.06;
+		double netSalary = grossSalary - retContrib;
+		System.out.println("Net salary: $" + netSalary);
+		double totalBonus = bonusPercentage * grossSalary;
+		System.out.println("The bonus amount earned is: " + totalBonus + "\n\n");
+	}
+	
+	public void retrieveSalary() //overridden getter method
+	{
+		double sum = (grossSalary * bonusPercentage) + grossSalary;
+		System.out.println("The sum of Gross Salary and Bonus Amount is: " + sum);
+	}
+	
+	public void showRetAmt() //overridden getter method 
+	{
+		double retContrib = grossSalary * 0.06;
+		System.out.println("Employee Retirement Contribution is: $" + retContrib);
+	}
+	
+	public void retrieveBonusAmt() //overridden getter method
+	{
+		double bonusAmount = (grossSalary * bonusPercentage);
+		System.out.println("The bonus earned by the employee is:"+ bonusAmount);
+	}
+}
+public class PartTimeEmp extends Employee 
+{	
+	
+	private String empName; //private field
+	private int empID; //private field
+	private int grossSalary; //private field
+	private double bonusAmount; //additional private field
+	
+	PartTimeEmp() //constructor
+	{
+		super();
+	}
+	
+	public void setEmpData(String empName, int empID, int grossSalary, double bonusAmount) //overridden setter method
+	{
+		this.empName = empName;
+		this.empID = empID;
+		this.grossSalary = grossSalary;
+		this.bonusAmount = bonusAmount;
+	}
+	
+	public void displayEmpData() //overridden getter method
+	{
+		System.out.println("Employee Name: " + empName + "\n"
+				+ "ID: " + empID + "\n" + "Gross Salary: $" + grossSalary);
+		
+		int monthlySalary = grossSalary / 12;
+		System.out.println("Monthly salary: $" + monthlySalary);
+		
+		
+		double retContrib = grossSalary * 0.06;
+		double netSalary = grossSalary - retContrib;
+		System.out.println("Net salary: $" + netSalary);
+		System.out.println("The bonus amount earned is: " + bonusAmount + "\n\n");
+	}
+	
+	public void retrieveSalary() //overridden getter method 
+	{
+		double sum = bonusAmount + grossSalary;
+		System.out.println("The sum of Gross Salary and Bonus Amount is: " + sum);
+	}
+	
+	public void showRetAmt() //overridden getter method
+	{
+		double retContrib = grossSalary * 0.06;
+		System.out.println("Employee Retirement Contribution is: $" + retContrib);
+	}
+	
+	public void retrieveBonusAmt() //overridden getter method
+	{
+		System.out.println("The bonus earned is: " + bonusAmount);
+	}
+}
+
+
+public class Main 
+{
+	public static void main (String[] args) //main method for user to enter info for 3 employees
+	{
+		String nameInput;
+		double bAmountInput, bPercentageInput;
+		int idInput, salaryInput;
+		int i = 0;
+		
+		
+		System.out.println("Enter data for: \n-Employee \n-Full Time Employee \n-Part Time Employee.\n\nPress enter to continue:");
+		Scanner keyboard = new Scanner(System.in);
+
+		while (keyboard.hasNextLine() && i < 3) //loop for 1 object*****************************
+		{
+			keyboard.nextLine();
+			System.out.println("Enter name: ");
+			nameInput = keyboard.nextLine(); //user-defined employee name
+			System.out.println("Enter ID: ");
+			idInput = keyboard.nextInt(); //user-defined employee ID number
+			System.out.println("Enter Gross Salary: ");
+			salaryInput = keyboard.nextInt(); //user-defined employee annual salary
+			
+			if (i == 0) //1st iteration is an employee object
+			{
+				Employee e  = new Employee();	
+				e.setEmpData(nameInput, idInput, salaryInput);
+				e.displayEmpData();
+				e.showSalary();
+				e.showRetAmt();
+			}
+			
+			if (i==1) //2nd iteration is a full time employee object
+			{
+				System.out.println("Enter Bonus Percentage for full time employees (decimal): ");
+				bPercentageInput = keyboard.nextDouble(); //user-defined employee bonus percentage [full-time employees]
+				FullTimeEmp a = new FullTimeEmp();
+				a.setEmpData(nameInput, idInput, salaryInput, bPercentageInput);
+				a.displayEmpData();
+				a.retrieveSalary();
+				a.showRetAmt();
+				a.retrieveBonusAmt();
+			}
+			
+			if (i==2) //3rd iteration is a part time employee object
+			{
+				System.out.println("Enter Bonus Amount for part time employees: ");
+				bAmountInput = keyboard.nextDouble(); //user-defined employee bonus amount [part-time employees]
+				PartTimeEmp b = new PartTimeEmp();
+				b.setEmpData(nameInput, idInput, salaryInput, bAmountInput);
+				b.displayEmpData();
+				b.retrieveSalary();
+				b.showRetAmt();
+				b.retrieveBonusAmt();
+			}
+			
+			System.out.println("========================\n\n");
+			i++;
+		}
+		keyboard.close();
+	}
+}
