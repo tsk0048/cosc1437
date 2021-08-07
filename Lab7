@@ -169,7 +169,7 @@ public class Main
 		System.out.println("Enter data for: \n-Employee \n-Full Time Employee \n-Part Time Employee.\n\nPress enter to continue:");
 		Scanner keyboard = new Scanner(System.in);
 
-		while (keyboard.hasNextLine() && i < 3) //loop for 1 object*****************************
+		while (keyboard.hasNextLine() && i < 3) 
 		{
 			keyboard.nextLine();
 			System.out.println("Enter name: ");
